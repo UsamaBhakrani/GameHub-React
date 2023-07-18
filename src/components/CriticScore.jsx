@@ -1,8 +1,14 @@
 import { Badge } from "@chakra-ui/react";
 
 const CriticScore = ({ score }) => {
+  let color = score > 75 ? "green" : score > 60 ? "yellow" : "";
   return (
-    <Badge fontSize="14px" paddingX="4px">
+    <Badge
+      colorScheme={color}
+      fontSize="14px"
+      paddingX="4px"
+      borderRadius="4px"
+    >
       {score}
     </Badge>
   );
