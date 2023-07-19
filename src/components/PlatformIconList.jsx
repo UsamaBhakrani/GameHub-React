@@ -27,7 +27,7 @@ const PlatformIconList = ({ platforms }) => {
   return (
     <HStack>
       {platforms.map((platform) => {
-        return <Icon as={mappedIcons[platform.slug]} />;
+        return <Icon key={platform.id} as={mappedIcons[platform.slug]} />;
       })}
     </HStack>
   );
