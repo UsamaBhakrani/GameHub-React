@@ -3,8 +3,8 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import useData from "../hooks/useData";
 
-const GameGrid = ({selectedGenre}) => {
-  const { data, error, isLoading } = useData('games')
+const GameGrid = ({ selectedGenre }) => {
+  const { data, error, isLoading } = useData("games");
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>

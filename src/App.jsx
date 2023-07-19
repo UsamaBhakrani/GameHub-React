@@ -31,7 +31,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <GameGrid selectedGenre />
+        <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );
