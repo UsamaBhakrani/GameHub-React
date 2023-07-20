@@ -3,7 +3,7 @@ import GenreListSkeleton from "./GenreListSkeleton";
 import imageUrl from "../services/imageUrl";
 import useGenres from "../hooks/useGenres";
 
-const GenreList = ({ onSelectGenre }) => {
+const GenreList = ({ onSelectGenre, selectedGenre }) => {
   const { data, isLoading, error } = useGenres();
 
   if (isLoading) return <GenreListSkeleton />;
@@ -20,6 +20,7 @@ const GenreList = ({ onSelectGenre }) => {
               alt={genre.name}
             />
             <Button
+              fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
               size="lg"
               variant="link"
