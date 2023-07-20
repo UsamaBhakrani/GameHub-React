@@ -1,10 +1,10 @@
 import { HStack, List, ListItem, Button, Image } from "@chakra-ui/react";
-import useData from "../hooks/useData";
 import GenreListSkeleton from "./GenreListSkeleton";
 import imageUrl from "../services/imageUrl";
+import useGenres from "../hooks/useGenres";
 
 const GenreList = ({ onSelectGenre }) => {
-  const { data, isLoading, error } = useData("genres");
+  const { data, isLoading, error } = useGenres();
 
   if (isLoading) return <GenreListSkeleton />;
   if (error) return null;

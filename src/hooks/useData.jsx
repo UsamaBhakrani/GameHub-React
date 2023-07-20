@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../services/api";
 
-const useData = (endpoint) => {
+const useData = (endpoint, requestConfig, deps) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ const useData = (endpoint) => {
   useEffect(() => {
     setIsLoading(true);
     api
-      .get(endpoint)
+      .get(endpoint, { ...requestConfig })
       .then((res) => {
         setData(res.data.results);
         setIsLoading(false);
@@ -18,7 +18,7 @@ const useData = (endpoint) => {
         setError(err.message);
         setIsLoading(false);
       });
-  }, []);
+  }, deps ? [...deps] : []);
 
   return { data, error, isLoading };
 };

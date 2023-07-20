@@ -1,7 +1,7 @@
 import useData from "./useData";
 
 const useGenres = () => {
-  useData("genres");
+  return useData("genres");
 };
 
 export default useGenres;
