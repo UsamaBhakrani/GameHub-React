@@ -7,7 +7,7 @@ import PlatformFilter from "./components/PlatformFilter";
 
 const App = () => {
   const [selectedGenre, setSelectedGenre] = useState(null);
-  const [menuItem, setMenuItem] = useState(null);
+  const [selectedPlatform, setSelectedPlatform] = useState(null);
 
   return (
     <Grid
@@ -35,13 +35,13 @@ const App = () => {
       </Show>
       <GridItem area="main">
         <PlatformFilter
-          menuItem={menuItem}
-          setMenuItem={(menu) => {
-            setMenuItem(menu);
-            console.log(menu);
-          }}
+          selectedPlatform={selectedPlatform}
+          onSelectPlatform={(platform) => setSelectedPlatform(platform.name)}
         />
-        <GameGrid selectedGenre={selectedGenre} />
+        <GameGrid
+          selectedPlatform={selectedPlatform}
+          selectedGenre={selectedGenre}
+        />
       </GridItem>
     </Grid>
   );

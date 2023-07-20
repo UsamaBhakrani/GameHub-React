@@ -1,32 +1,21 @@
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Button,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { FiChevronDown } from "react-icons/fi";
 import usePlatforms from "../hooks/usePlatforms";
-import { useState } from "react";
 
-const PlatformFilter = ({ setMenuItem, menuItem }) => {
+const PlatformFilter = ({ onSelectPlatform, selectedPlatform }) => {
   const { data, error } = usePlatforms();
 
   if (error) return null;
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<FiChevronDown />}>
-        {menuItem ? menuItem : "Platforms"}
+        {selectedPlatform ? selectedPlatform : "Platforms"}
       </MenuButton>
       <MenuList>
         {data.map((platform) => {
           return (
             <MenuItem
-              onClick={() => setMenuItem(platform.name)}
+              onClick={() => onSelectPlatform(platform)}
               key={platform.id}
             >
               {platform.name}
