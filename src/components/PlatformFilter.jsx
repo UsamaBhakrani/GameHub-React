@@ -13,8 +13,7 @@ import { FiChevronDown } from "react-icons/fi";
 import usePlatforms from "../hooks/usePlatforms";
 import { useState } from "react";
 
-const PlatformFilter = () => {
-  const [menuItem, setMenuItem] = useState(null);
+const PlatformFilter = ({ setMenuItem, menuItem }) => {
   const { data, error } = usePlatforms();
 
   if (error) return null;

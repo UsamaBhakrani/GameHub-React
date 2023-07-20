@@ -13,7 +13,7 @@ const GameGrid = ({ selectedGenre }) => {
         {isLoading &&
           skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {data.map((game) => {
-          return <GameCard id={game.id} game={game} />;
+          return <GameCard key={game.id} id={game.id} game={game} />;
         })}
       </SimpleGrid>
     </>
